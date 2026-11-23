@@ -91,3 +91,18 @@ positivo entre 0 y 1e9. Eso previene datos raros o inyecciones. En cuanto al ord
 el código está dividido en funciones con una sola tarea cada una (registrar, login, 
 pedir, clima, cambio) y hay dos menús. Uno principal y otro de sesión que solo se 
 ve después de loguearse. Eso hace que sea fácil de leer y de mantener.
+
+5. Justificación al uso de IA
+
+Utilicé IA como apoyo para implementar el hash de contraseñas, Ya que anteriormente 
+use SHA256 directo en lugar de PBKDF2 o bcrypt con sal. 
+Si bien SHA256 es un algoritmo muy rápido, pero al no usar sal, una misma contraseña 
+siempre produce el mismo hash, lo que facilita ataques con tablas precalculadas.
+Por ello decidí usar PBKDF2 en lugar de bcrypt porque viene incluido en la librería estándar de 
+Python, por lo que no requiere instalar dependencias externas. Para cada usuario se genera 
+una sal aleatoria de 16 bytes con el módulo secrets, y se aplican 200.000 iteraciones para 
+volver costoso cada intento de fuerza bruta. La sal se guarda junto al hash y en el login 
+se recalcula el hash con esa sal y se compara usando hmac.compare_digest.
+También validé el funcionamiento registrando usuarios y comprobé que el login acepta las 
+credenciales correctas y rechaza las incorrectas. También verifiqué que dos usuarios con 
+la misma contraseña generan hashes distintos.
