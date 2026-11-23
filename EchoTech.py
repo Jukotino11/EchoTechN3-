@@ -118,8 +118,10 @@ def clima():
                               "current": "temperature_2m,relative_humidity_2m,weather_code"})
     try:
         a = datos["current"]
-        print(f"{lugar['name']}, {lugar.get('country', '')}: {a['temperature_2m']} °C, "
-              f"Humedad {a['relative_humidity_2m']}%")
+        estado = 
+        ESTADOS.get(a["weather_code"], "Sin descripción")
+        print(f"{lugar['name']}, {lugar.get('country', '')}: {estado}, {a['temperature_2m']} °C, "
+      f"Humedad {a['relative_humidity_2m']}%")
     except (KeyError, TypeError):
         print("Los datos del clima no son utilizables.")
 
