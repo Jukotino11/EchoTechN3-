@@ -56,7 +56,6 @@ encadenadas a Open-Meteo, en donde primero ejecuta la geocodificación, que conv
 el nombre de la ciudad en latitud y longitud, y luego la de pronóstico que con esas 
 coordenadas entrega temperatura y humedad actuales. Para el tipo de cambio se usa dolarapi, 
 de donde se saca el campo venta y con eso se convierte el monto ingresado a pesos chilenos. 
-Los parámetros se pasan como diccionario y no pegados a la URL, lo que es más limpio y seguro.
 
 def pedir(url, params=None):
     """GET con control de errores. Devuelve el JSON o None si algo falló."""
