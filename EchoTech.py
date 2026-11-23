@@ -7,6 +7,7 @@ import os
 import re
 import secrets
 
+# pip install requests 
 import requests
 
 ARCHIVO = os.path.join(os.path.dirname(os.path.abspath(__file__)), "usuarios.json")
