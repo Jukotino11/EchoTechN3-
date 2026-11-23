@@ -119,8 +119,7 @@ def clima():
                               "current": "temperature_2m,relative_humidity_2m,weather_code"})
     try:
         a = datos["current"]
-        estado = 
-        ESTADOS.get(a["weather_code"], "Sin descripción")
+        estado = ESTADOS.get(a["weather_code"], "Sin descripción")
         print(f"{lugar['name']}, {lugar.get('country', '')}: {estado}, {a['temperature_2m']} °C, "
       f"Humedad {a['relative_humidity_2m']}%")
     except (KeyError, TypeError):
