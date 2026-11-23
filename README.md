@@ -9,9 +9,7 @@ pronóstico, que con esas coordenadas entrega temperatura y humedad actuales.
 Para el tipo de cambio se usa dolarapi (versión Chile), de donde se saca el 
 campo venta y con eso se convierte el monto ingresado a pesos chilenos. Los 
 parámetros se pasan como diccionario y no pegados a la URL, lo que es más limpio 
-y seguro. Ojo con un detalle: ESTADOS está definido y se pide weather_code, 
-pero nunca se muestra el estado del clima, y API_KEY se declara pero ninguna 
-de las APIs la usa. Si el profe lo nota, mejor explicarlo o aprovecharlo.
+y seguro. 
 
 def clima():
     ciudad = input("Ciudad: ").strip()
